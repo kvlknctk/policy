@@ -1,19 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+    namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+    use App\Customer;
+    use Illuminate\Http\Request;
 
-class HomeCTRL extends Controller
-{
-    public function index()
+    class HomeCTRL extends Controller
     {
-        return view('index');
-    }
+        public function index()
+        {
+            return view('index');
+        }
 
-    public function customers()
-    {
-        return view('customer');
+        public function customers()
+        {
+            $customers = Customer::paginate(5);
 
+            return view('customer', compact('customers'));
+
+        }
     }
-}
