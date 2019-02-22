@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Customer;
 use Illuminate\Http\Request;
 
 class CustomerAdmin extends Controller
@@ -13,7 +14,10 @@ class CustomerAdmin extends Controller
      */
     public function index()
     {
-        //
+        $customers = Customer::paginate(5);
+
+        return view('customer', compact('customers'));
+
     }
 
     /**
@@ -23,7 +27,7 @@ class CustomerAdmin extends Controller
      */
     public function create()
     {
-        //
+        return view('customer_add');
     }
 
     /**
@@ -34,7 +38,8 @@ class CustomerAdmin extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Customer::create($request->all());
+        return redirect()->to('customers');
     }
 
     /**
