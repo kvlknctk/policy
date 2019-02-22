@@ -39,7 +39,7 @@ class CustomerAdmin extends Controller
     public function store(Request $request)
     {
         Customer::create($request->all());
-        return redirect()->to('customers');
+        return redirect()->route('customers.index');
     }
 
     /**
@@ -79,11 +79,14 @@ class CustomerAdmin extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Customer $customer
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+
+        return redirect()->back();
     }
 }
