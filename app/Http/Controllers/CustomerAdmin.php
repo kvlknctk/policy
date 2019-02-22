@@ -52,7 +52,7 @@ class CustomerAdmin extends Controller
     {
         $customer = Customer::findOrFail($id);
 
-        return $customer;
+        return view('customer_show', compact('customer'));
     }
 
     /**
