@@ -46,7 +46,7 @@
                                         <td>{{$customer->name}}</td>
 
                                         <td width="150">
-                                            <button class="btn btn-success btn-sm">Detay</button>
+                                            <a class="btn btn-success btn-sm" href="{{route('customers.show', ['id' => $customer->id])}}">Detay</a>
 
                                             <form action="{{route('customers.destroy', ['id' => $customer->id])}}" style="float: left;" method="post">
                                                 @csrf
