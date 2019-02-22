@@ -12,11 +12,4 @@
             return view('index');
         }
 
-        public function customers()
-        {
-            $customers = Customer::paginate(5);
-
-            return view('customer', compact('customers'));
-
-        }
     }
