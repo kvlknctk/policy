@@ -12,7 +12,7 @@
 */
 
 Route::get('/', ['as'  => 'index', 'uses' => 'HomeCTRL@index']);
-Route::get('/customers', ['as'  => 'customers', 'uses' => 'HomeCTRL@customers']);
+Route::resource('customers', 'CustomerAdmin');
 
 Auth::routes();
 
