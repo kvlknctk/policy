@@ -8,7 +8,9 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Müşteriler</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Yeni Müşteri</a>
+            <a href="{{url('customers/create')}}" class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm">
+                <i class="fas fa-plus fa-sm text-white-50"></i> Yeni Müşteri
+            </a>
         </div>
 
         <!-- Content Row -->
@@ -43,14 +45,27 @@
                                         <td>{{$customer->name}}</td>
                                         <td>{{$customer->name}}</td>
 
-                                        <td>
+                                        <td width="150">
                                             <button class="btn btn-success btn-sm">Detay</button>
+
+                                            <form action="{{route('customers.destroy', ['id' => $customer->id])}}" style="float: left;" method="post">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <button class="btn btn-danger btn-sm" type="submit">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </form>
+
                                         </td>
                                     </tr>
                                 @endforeach
 
                                 </tbody>
                             </table>
+
+
+                        {!! $customers->links() !!}
+
                         </div>
 
                     </div>
