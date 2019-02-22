@@ -25,7 +25,7 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
-                                    <th>İsim</th>
+                                    <th>Müşteri / Firma</th>
                                     <th>Telefon</th>
                                     <th>Gsm</th>
                                     <th>Şehir</th>
